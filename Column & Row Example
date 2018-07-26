@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+
+
+void main(){
+  runApp(new application());
+}
+
+class application extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(title: 'My column app',
+    home: new Scaffold(
+      appBar: new AppBar(title: new Text("column & row app"),),
+      body: new Row(mainAxisAlignment: MainAxisAlignment.center,children: <Widget> [new Text("this"),
+    new Column(mainAxisAlignment: MainAxisAlignment.center,children: <Widget>[
+      new Text("this"),new Text("is"),new Text("not mine")],)
+    ],),
+    ),
+    );
+  }
+}
