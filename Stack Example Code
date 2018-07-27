@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+void main(){
+    runApp(new Application());
+}
+
+class Application extends StatefulWidget {
+  @override
+  _ApplicationState createState() => _ApplicationState();
+}
+
+class _ApplicationState extends State<Application> {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(title: "Stack Example ",home: new Scaffold(
+      appBar: new AppBar(title: new Text("Stack Example")
+      ),
+      body: new Stack(alignment: Alignment.center,children: <Widget>[
+
+        new Card(color: Colors.amberAccent,child: new Padding(padding: const EdgeInsets.all(200.0)),),
+        new Card(color: Colors.lightGreen,child: new Padding(padding: const EdgeInsets.all(150.0)),),
+        new Card(color: Colors.lightBlue,child: new Padding(padding: const EdgeInsets.all(100.0)),),
+        new Card(color: Colors.black,child: new Padding(padding: const EdgeInsets.all(50.0)),),
+        new Card(color: Colors.cyanAccent,child: new Padding(padding: const EdgeInsets.all(30.0)),),
+        new Card(color: Colors.deepOrange,child: new Padding(padding: const EdgeInsets.all(10.0)),)
+
+      ],
+      ),
+    ),
+    );
+  }
+}
