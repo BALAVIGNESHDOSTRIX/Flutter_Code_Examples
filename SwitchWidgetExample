@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+void main(){
+
+  runApp(new SwitchWidget());
+}
+
+class SwitchWidget extends StatefulWidget {
+  @override
+  _SwitchWidgetState createState() => _SwitchWidgetState();
+}
+
+class _SwitchWidgetState extends State<SwitchWidget> {
+
+  bool sbool = false;
+
+  void method1(value){
+    setState(() {
+          sbool = value;
+          print(sbool);
+        });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "Switch Widget Example",
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Switch Widget Example"),
+          backgroundColor: Colors.tealAccent,
+        ),
+        body: new Center(
+          child: new Switch(
+            value:sbool ,
+            onChanged: (bool val){method1(val);},
+          ),
+        ),
+      ),
+    );
+  }
+}

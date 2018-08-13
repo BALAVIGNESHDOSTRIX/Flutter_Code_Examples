@@ -1,0 +1,72 @@
+//OtherPage
+
+import 'package:flutter/material.dart';
+
+class other extends StatelessWidget {
+  final String stxt;
+
+  other(this.stxt);
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("OtherPage"),
+          backgroundColor: Colors.amber,
+        ),
+        body: new Center(
+          child: new Text(stxt),
+        ),
+      ),
+    );
+  }
+}
+
+
+//Main
+
+import 'package:flutter/material.dart';
+import 'otherpage.dart';
+
+void main(){
+  runApp(new DrawerWidget());
+}
+
+class DrawerWidget extends StatefulWidget {
+  @override
+  _DrawerWidgetState createState() => _DrawerWidgetState();
+}
+
+class _DrawerWidgetState extends State<DrawerWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "New Drawer Example",
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text("Drawer Widget"),
+          backgroundColor: Colors.pink,
+        ),
+        drawer: new Drawer(
+          child: new ListView(
+            children: <Widget>[
+              new UserAccountsDrawerHeader(
+                accountName: new Text("Balavignesh"),
+                accountEmail: new Text("crystelpheonix@gmail.com"),
+                currentAccountPicture: new CircleAvatar(backgroundColor: Colors.black26,child: new Text("B"),),
+                decoration: new BoxDecoration(color: Colors.lightGreen),
+                otherAccountsPictures: <Widget>[
+                  new CircleAvatar(backgroundColor: Colors.yellow,child: new Text("C"),),
+                  new CircleAvatar(backgroundColor: Colors.pinkAccent,child: new Text("E"),),
+                ],
+              ),
+              new ListTile(title: new Text("Page1"),trailing: new Icon(Icons.access_alarm),onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new other('Page2'))),),
+              new ListTile(title: new Text("Page2"),trailing: new Icon(Icons.airline_seat_flat_angled),onTap: () => Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new other('Page3'))),),
+              new ListTile(title: new Text("close"),trailing: new Icon(Icons.close),onTap: (){Navigator.pop(context);},)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
