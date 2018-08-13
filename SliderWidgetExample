@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(new SliderExample());
+}
+
+class SliderExample extends StatefulWidget {
+  @override
+  _SliderExampleState createState() => _SliderExampleState();
+}
+
+class _SliderExampleState extends State<SliderExample> {
+
+  double dtxt = 2.0;
+
+  void method1(value){
+
+    setState(() {
+          dtxt = value;
+        });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+
+      title: "Slider Example",
+      home: new Scaffold(appBar: new AppBar(title: new Text("Slider Widget"),
+      backgroundColor: Colors.deepOrange,
+      ),
+      body: new Column(children: <Widget>[
+
+        new Slider(value: 5.0,min:1.0 ,max: 10.0,onChanged: (double val){method1(val);},
+        ),
+        new Text("The value is : $dtxt")
+        ],
+        ),
+      ),
+      
+    );
+  }
+}

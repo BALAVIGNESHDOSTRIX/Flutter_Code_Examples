@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(new RadioExample());
+}
+
+class RadioExample extends StatefulWidget {
+  @override
+  _RadioExampleState createState() => _RadioExampleState();
+}
+
+class _RadioExampleState extends State<RadioExample> {
+
+  int rvalue = 0;
+
+  void method1(value){
+
+    setState(() {
+          rvalue = value;
+          print(rvalue);
+        });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "RadioApp Example",
+      home: new Scaffold(
+        appBar: new AppBar(title: new Text("RadioButton Widget") ,
+        backgroundColor: Colors.deepPurple,
+        ),
+        body: new Center(
+          child: new Column(
+            children: <Widget>[
+
+                  new Radio(value: 1,groupValue: rvalue,onChanged: (int val){method1(val);},),
+                  new Radio(value: 2,groupValue: rvalue,onChanged: (int val){method1(val);},),
+                  new Radio(value: 3,groupValue: rvalue,onChanged: (int val){method1(val);},)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(new TextExample());
+}
+
+class TextExample extends StatefulWidget {
+  @override
+  _TextExampleState createState() => _TextExampleState();
+}
+
+class _TextExampleState extends State<TextExample> {
+  String ptext;
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "TextField Example",
+      home: new Scaffold(appBar: new AppBar(title: new Text("TextField Example"),
+      backgroundColor: Colors.green,
+      ),
+      body: new Column(
+        children: <Widget>[
+          new TextField(
+            onSubmitted: (String txt){
+                setState(() {
+                                  ptext = txt;
+                                });
+            },
+            decoration: new InputDecoration(hintText: 'Type something',labelText: 'Yourname'),
+          )
+        ],
+      ),
+      ),
+    );
+  }
+}

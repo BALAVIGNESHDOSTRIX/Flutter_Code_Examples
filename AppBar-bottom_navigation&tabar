@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(new AppbarTest());
+}
+
+class AppbarTest extends StatefulWidget {
+  @override
+  _AppbarTestState createState() => _AppbarTestState();
+}
+
+class _AppbarTestState extends State<AppbarTest> with SingleTickerProviderStateMixin{
+
+  TabController _tabc;
+
+  @override
+    void initState() {
+      // TODO: implement initState
+      super.initState();
+
+      _tabc = new TabController(length: 3,vsync: this);
+    }
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: "Bottom & Top Appbar",
+      home: new Scaffold(appBar: new AppBar(
+        title: new Text("Appbar Bottom"),
+        bottom: new TabBar(
+          controller: _tabc ,
+          tabs: <Widget>[
+            new Tab(icon: new Icon(Icons.home),),
+            new Tab(icon: new Icon(Icons.supervised_user_circle),),
+            new Tab(icon: new Icon(Icons.close),)
+          ],
+        ),
+
+      ),
+      body: new TabBarView(
+        controller: _tabc,
+        children: <Widget>[
+          new Center(child: new Text("Welcome to home"),),
+          new Center(child: new Text("Welcome to admin"),),
+          new Center(child: new Text("Welcome to exit door"),)
+        ],
+      ),
+      bottomNavigationBar: new Material(
+        color: Colors.green,
+        child: new TabBar(
+          controller: _tabc,
+          tabs: <Widget>[
+            new Tab(icon: new Icon(Icons.home),),
+            new Tab(icon: new Icon(Icons.supervised_user_circle),),
+            new Tab(icon: new Icon(Icons.close),)
+          ],
+        ),
+      ),
+      ),
+    );
+  }
+}

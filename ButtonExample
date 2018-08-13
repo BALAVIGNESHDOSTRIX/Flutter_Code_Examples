@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+void main(){
+runApp(new ButtonExample());
+}
+
+class ButtonExample extends StatefulWidget {
+  @override
+  _ButtonExampleState createState() => _ButtonExampleState();
+}
+
+class _ButtonExampleState extends State<ButtonExample> {
+
+  String ptext = '';
+
+  void method1(String value){
+    setState(() {
+          ptext = value;
+        });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+
+      title: "For Button Example",
+      home: new Scaffold(
+        appBar: new AppBar(title:  new Text("Button Example"),
+          backgroundColor: Colors.blueGrey,
+        ),
+        body: new Column(
+          children: <Widget>[
+            new RaisedButton(onPressed: (){ method1("You raised me");},child: new Text("Raised Button"),)
+          ],
+        ),
+      ),
+      
+    );
+  }
+}

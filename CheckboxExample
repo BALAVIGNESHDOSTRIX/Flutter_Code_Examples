@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(new CheckBoxExample());
+}
+class CheckBoxExample extends StatefulWidget {
+  @override
+  _CheckBoxExampleState createState() => _CheckBoxExampleState();
+}
+
+class _CheckBoxExampleState extends State<CheckBoxExample> {
+  bool cbool = false;
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+
+      title: "CheckBoxExample",
+      home: new Scaffold(
+        appBar: new AppBar(title: new Text("CheckBoxExample"),
+        backgroundColor: Colors.black38,
+        ),
+        body: new Center(
+          child: new Checkbox(value: cbool ,
+          onChanged: (bool cb){
+            setState(() {
+                          cbool = cb;
+                          print(cbool);
+                        });
+          },),
+        ),
+      ),
+      
+    );
+  }
+}

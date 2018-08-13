@@ -1,0 +1,51 @@
+//main
+
+import 'package:flutter/material.dart';
+import 'customw.dart';
+
+void main(){
+  runApp(new customw());
+}
+
+class customw extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "My custom widget",
+      home: new Scaffold(
+        body: new customwidget(),
+
+      ),
+      
+    );
+  }
+}
+
+//customwidget
+
+import 'package:flutter/material.dart';
+
+class customwidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      child: new Container(
+        color: Colors.yellow,
+        margin: EdgeInsets.all(15.0),
+        child: new Container(
+          color: Colors.red,
+          margin: EdgeInsets.all(15.0),
+          child: new Container(
+            color: Colors.pink,
+            margin: EdgeInsets.all(15.0),
+            child: new Container(
+              color: Colors.blue,
+              margin: EdgeInsets.all(15.0),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
